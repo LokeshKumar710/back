@@ -11,13 +11,13 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5001;
-
+const mongo=process.env.MONGO_URI
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://sai:1234@cluster0.uogem.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(process.env.mongo, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
